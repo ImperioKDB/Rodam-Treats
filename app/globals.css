@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: oklch(98% .01 80);
+  --cream: oklch(96% .02 85);
+  --cocoa: oklch(38% .1 45);
+  --foreground: oklch(28% .06 45);
+  --gold: oklch(82% .16 75);
+  --muted: oklch(55% .06 55);
+  --border: oklch(88% .04 75);
+  --whatsapp: oklch(72% .22 155);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: oklch(82% .16 75 / .45); color: var(--cocoa); }
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .eyebrow { @apply text-xs font-bold uppercase tracking-[0.2em] text-[#ae771f]; }
+  .section-title { @apply mt-3 text-3xl font-extrabold tracking-tight text-cocoa sm:text-4xl; }
+  .body-copy { @apply leading-7 text-muted; }
+  .wa-button { @apply inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-bold text-white shadow-lg shadow-whatsapp/25 transition duration-200 hover:-translate-y-0.5 hover:brightness-105 active:scale-[.97]; }
+  .outline-button { @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#d8b76c] px-5 py-3 text-sm font-bold text-cocoa transition duration-200 hover:-translate-y-0.5 hover:bg-cream active:scale-[.97]; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
