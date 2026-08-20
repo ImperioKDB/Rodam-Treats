@@ -16,7 +16,7 @@ import {
   UsersRound
 } from 'lucide-react';
 
-const ASSET_BASE = 'https://rodam-treats.lovable.app/assets';
+const ASSET_BASE = 'https://picsum.photos';
 const WHATSAPP = 'https://wa.me/2349114367588';
 const wa = (message: string) => `${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
@@ -24,7 +24,7 @@ const products = [
   {
     name: 'Classic Chin Chin',
     tag: 'Bestseller',
-    image: `${ASSET_BASE}/classic-chinchin-h1m0L6X9.jpg`,
+    image: `${ASSET_BASE}/seed/classic-chinchin/800/800`,
     description: 'The timeless, lightly sweetened crunch. Our original recipe, fried to golden perfection.',
     prices: [['500g', '₦3,500'], ['1kg', '₦6,000']],
     message: 'Hi! I want the Classic Chin Chin pack. Can I place an order?'
@@ -32,7 +32,7 @@ const products = [
   {
     name: 'Spicy Chin Chin',
     tag: 'Hot pick',
-    image: `${ASSET_BASE}/spicy-chinchin-DpMhM7KM.jpg`,
+    image: `${ASSET_BASE}/seed/spicy-chinchin/800/800`,
     description: 'A bold kick of chili and spices for snackers who love heat with their crunch.',
     prices: [['500g', '₦4,000'], ['1kg', '₦7,000']],
     message: 'Hi! I want the Spicy Chin Chin pack. Can I place an order?'
@@ -40,7 +40,7 @@ const products = [
   {
     name: 'Coconut Chin Chin',
     tag: '',
-    image: `${ASSET_BASE}/coconut-chinchin-CT8vBJFV.jpg`,
+    image: `${ASSET_BASE}/seed/coconut-chinchin/800/800`,
     description: 'Made with real coconut flakes for a fragrant, tropical twist on the classic.',
     prices: [['500g', '₦4,500'], ['1kg', '₦7,500']],
     message: 'Hi! I want the Coconut Chin Chin pack. Can I place an order?'
@@ -105,7 +105,7 @@ export default function Home() {
           </div>
           <div className="relative">
             <div className="absolute -inset-5 rounded-[2.5rem] bg-[#f5e7c8]/60 blur-2xl" />
-            <img src={`${ASSET_BASE}/chinchin-hero-DSNB-s1k.jpg`} alt="Freshly baked golden Nigerian chin chin in a bowl" className="relative aspect-square w-full rounded-3xl object-cover shadow-cocoa" />
+            <img src={`${ASSET_BASE}/seed/chinchin-hero/1000/1000`} alt="Freshly baked golden Nigerian chin chin in a bowl" className="relative aspect-square w-full rounded-3xl object-cover shadow-cocoa" />
           </div>
         </div>
       </section>
