@@ -21,24 +21,8 @@ const wa = (message: string) => `${WHATSAPP}?text=${encodeURIComponent(message)}
 
 const products = [
   {
-    name: 'Classic Chin Chin',
-    tag: 'Bestseller',
-    image: `${ASSET_BASE}/seed/classic-chinchin/800/800`,
-    description: 'The timeless, lightly sweetened crunch. Our original recipe, fried to golden perfection.',
-    prices: [['500g', '₦3,500'], ['1kg', '₦6,000']],
-    message: 'Hi! I want the Classic Chin Chin pack. Can I place an order?'
-  },
-  {
-    name: 'Spicy Chin Chin',
-    tag: 'Hot pick',
-    image: `${ASSET_BASE}/seed/spicy-chinchin/800/800`,
-    description: 'A bold kick of chili and spices for snackers who love heat with their crunch.',
-    prices: [['500g', '₦4,000'], ['1kg', '₦7,000']],
-    message: 'Hi! I want the Spicy Chin Chin pack. Can I place an order?'
-  },
-  {
     name: 'Coconut Chin Chin',
-    tag: '',
+    tag: 'Bestseller',
     image: `${ASSET_BASE}/seed/coconut-chinchin/800/800`,
     description: 'Made with real coconut flakes for a fragrant, tropical twist on the classic.',
     prices: [['500g', '₦4,500'], ['1kg', '₦7,500']],
@@ -54,13 +38,13 @@ const benefits = [
 ] as const;
 
 const steps = [
-  ['01', 'Pick Your Flavor', 'Choose Classic, Spicy, or Coconut — and the size you want.'],
+  ['01', 'Pick Your Size', 'Choose the pack size that suits your craving — 500g or 1kg.'],
   ['02', 'Message Us on WhatsApp', 'Tap any Order button. Your message is pre-filled with your choice.'],
   ['03', 'Get It Delivered', 'Confirm your address, pay, and receive fresh chin chin at your door.']
 ];
 
 const reviews = [
-  ['A', 'Amina O.', 'Lekki, Lagos', 'The Spicy Chin Chin is addictive! Crunchy, fresh, and the delivery was super fast.'],
+  ['A', 'Amina O.', 'Lekki, Lagos', 'The Coconut Chin Chin is addictive! Crunchy, fresh, and the delivery was super fast.'],
   ['E', 'Emeka N.', 'Yaba, Lagos', 'I ordered 5kg for my sister\'s birthday party. Everyone loved it. Will definitely order again.'],
   ['T', 'Tolu K.', 'Ikeja, Lagos', 'Premium packaging and a really tasty snack. The Coconut flavor is my favorite.']
 ];
@@ -116,14 +100,14 @@ export default function Home() {
 
       <section id="products" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="container-site">
-          <div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Our Menu</p><h2 className="section-title">Pick Your Perfect Crunch</h2><p className="body-copy mt-3">Choose a flavor and size, then tap “Order this” to send your request on WhatsApp.</p></div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {products.map((product) => <article key={product.name} className="group overflow-hidden rounded-3xl border border-border/70 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-cocoa">
+          <div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Our Menu</p><h2 className="section-title">Our Signature Chin Chin</h2><p className="body-copy mt-3">Pick your pack size, then tap “Order this” to send your request on WhatsApp.</p></div>
+          <div className="mt-10 grid gap-5 justify-center">
+            {products.map((product) => <article key={product.name} className="group mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-border/70 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-cocoa">
               <div className="relative aspect-[1.15/1] overflow-hidden bg-cream"><img src={product.image} alt={product.name} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />{product.tag && <span className="absolute left-4 top-4 rounded-full bg-[#d49a2e] px-3 py-1 text-[11px] font-bold text-white">{product.tag}</span>}</div>
               <div className="p-5"><h3 className="text-xl font-extrabold text-cocoa">{product.name}</h3><p className="body-copy mt-2 text-sm">{product.description}</p><div className="mt-5 grid grid-cols-2 gap-2 rounded-2xl bg-cream p-3">{product.prices.map(([size, price]) => <div key={size}><div className="text-xs font-semibold text-muted">{size}</div><div className="mt-0.5 font-extrabold text-cocoa">{price}</div></div>)}</div><a className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-[#d8b76c] px-4 py-3 text-sm font-bold text-cocoa transition hover:bg-cream" href={wa(product.message)}>Order this on WhatsApp <ChevronRight size={16} /></a></div>
             </article>)}
           </div>
-          <div className="mt-8 text-center"><a className="outline-button" href={wa("Hi! I'd like to order a mix of chin chin flavors. Please send me the available options.")}>Order a custom mix on WhatsApp <ArrowRight size={16} /></a></div>
+          <div className="mt-8 text-center"><a className="outline-button" href={wa("Hi! I'd like to place a bulk or party order of Coconut Chin Chin. Please send me the options.")}>Order in bulk on WhatsApp <ArrowRight size={16} /></a></div>
         </div>
       </section>
 
@@ -131,7 +115,7 @@ export default function Home() {
         <div className="container-site"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Why Us</p><h2 className="section-title">Made With Love, Packed With Care</h2><p className="body-copy mt-3">We combine family recipes with clean, modern standards so every bite is safe and satisfying.</p></div><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{benefits.map(([Icon, title, copy]) => <div key={title} className="rounded-3xl border border-[#e9d9b2] bg-background p-5"><div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#f6e8c8] text-[#ae771f]"><Icon size={21} /></div><h3 className="mt-5 font-extrabold text-cocoa">{title}</h3><p className="body-copy mt-2 text-sm">{copy}</p></div>)}</div></div>
       </section>
 
-      <section id="how-it-works" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"><div className="container-site"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">How It Works</p><h2 className="section-title">Your Chin Chin in 3 Easy Steps</h2></div><div className="mt-10 grid gap-8 md:grid-cols-3">{steps.map(([number, title, copy]) => <div key={number} className="relative text-center md:text-left"><div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-cocoa text-lg font-black text-[#f8df9f] md:mx-0">{number}</div><h3 className="mt-5 text-xl font-extrabold text-cocoa">{title}</h3><p className="body-copy mt-2 max-w-xs md:max-w-none">{copy}</p></div>)}</div><div className="mt-10 text-center"><a className="wa-button" href={wa("Hi! I'm ready to order chin chin. Can you help me choose a flavor?")}><WhatsAppIcon /> Start your order on WhatsApp</a></div></div></section>
+      <section id="how-it-works" className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8"><div className="container-site"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">How It Works</p><h2 className="section-title">Your Chin Chin in 3 Easy Steps</h2></div><div className="mt-10 grid gap-8 md:grid-cols-3">{steps.map(([number, title, copy]) => <div key={number} className="relative text-center md:text-left"><div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-cocoa text-lg font-black text-[#f8df9f] md:mx-0">{number}</div><h3 className="mt-5 text-xl font-extrabold text-cocoa">{title}</h3><p className="body-copy mt-2 max-w-xs md:max-w-none">{copy}</p></div>)}</div><div className="mt-10 text-center"><a className="wa-button" href={wa("Hi! I'm ready to order chin chin. Can you confirm the pack sizes for me?")}><WhatsAppIcon /> Start your order on WhatsApp</a></div></div></section>
 
       <section id="reviews" className="bg-cream px-4 py-16 sm:px-6 sm:py-20 lg:px-8"><div className="container-site"><div className="mx-auto max-w-2xl text-center"><p className="eyebrow">Loved by Snackers</p><h2 className="section-title">What Our Customers Say</h2></div><div className="mt-10 grid gap-5 md:grid-cols-3">{reviews.map(([initial, name, location, quote]) => <figure key={name} className="rounded-3xl border border-[#e9d9b2] bg-background p-6"><div className="flex gap-1 text-[#d49a2e]">{[1,2,3,4,5].map((n) => <Star key={n} size={15} fill="currentColor" />)}</div><blockquote className="mt-5 text-[15px] font-medium leading-7 text-cocoa">“{quote}”</blockquote><figcaption className="mt-6 flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-full bg-cocoa text-sm font-black text-[#f8df9f]">{initial}</span><span><strong className="block text-sm text-cocoa">{name}</strong><span className="text-xs text-muted">{location}</span></span></figcaption></figure>)}</div></div></section>
 
